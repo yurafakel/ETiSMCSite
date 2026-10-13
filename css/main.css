@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(122deg, #520099, #b866ff);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  font-style: normal;
+  font-size: clamp(12px, 1.5vw, 16px); /* адаптивный базовый размер шрифта */
+  margin: 0;
+}
+
+.wrapper {
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.boxhero img {
+  width: 100%;
+  max-width: 500px; /* не больше 500px, но может быть меньше */
+  height: auto;
+}
+
+.hero h2 {
+  font-size: clamp(32px, 5vw, 50px);
+}
+
+.o{
+    margin-bottom:550px;
+}
+
+.screens h3 {
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.screens {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.slider-wrapper {
+  position: relative;
+  max-width: 70rem;
+  width: 100%; /* занимает всю доступную ширину */
+  margin: 0 auto;
+}
+
+.slider {
+  display: flex;
+  aspect-ratio: 16 / 9;
+  overflow-x: auto; /* горизонтальная прокрутка */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border-radius: 0.5rem;
+  /* overflow-x: hidden убран: он конфликтовал с прокруткой */
+  -webkit-overflow-scrolling: touch; /* плавная прокрутка на iOS */
+  overflow-x: hidden;
+}
+
+.slider img {
+  flex: 0 0 auto; /* отключаем сжатие/растяжение */
+  width: 100%;    /* картинка занимает всю ширину слайда */
+  min-width: 100%; /* принудительно один слайд = 100% ширины контейнера */
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
+.slider-nav {
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9; /* исправлено: z-index не может быть дробным */
+}
+
+.slider-nav a {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+  opacity: 1;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  color: #000;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.slider-btn.prev { left: 1rem; }
+.slider-btn.next { right: 1rem; }
+
+.slider-btn:hover {
+  background: #fff;
+}
+
+.helpers {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.textdiv {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.textdiv h2 {
+  font-size: clamp(32px, 5vw, 50px);
+}
+
+.textdiv h3 {
+  font-size: clamp(24px, 3.5vw, 30px);
+}
+
+.helperbox img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.helperbox {
+  display: flex;
+  border: 16px solid #fff;
+  background-color: #000;
+  width: 100%;
+  min-width: 300px;
+
+}
+
+.tysmtext {
+  font-size: clamp(48px, 8vw, 80px);
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  position: sticky;
+  top: 10px;
+  width: calc(100% - 20px);
+  max-width: 1450px;
+  box-sizing: border-box;
+  margin: 10px auto 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  gap: 10px;
+
+  background: rgba(20, 10, 30, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+  overflow: hidden;       /* главное: не даёт контенту вылезать */
+  height: auto;            /* не фиксируем жёстко — подстраивается */
+}
+
+.headerbtns {
+  display: flex;
+  flex-wrap: wrap;         /* разрешает перенос кнопок на новую строку */
+  gap: 20px;               /* твой исходный gap */
+  height: 100px;           /* твой исходный height */
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 100px;     /* твой исходный отступ */
+
+  align-items: center;     /* центрирует кнопки по вертикали внутри 100px */
+  min-width: 0;            /* важно: позволяет корректно сжиматься при нехватке места */
+}
+
+header a {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  font-style: normal;
+
+  font-size: clamp(10px, 3vw, 27px); /* твой исходный clamp */
+  text-decoration: none;
+
+  display: flex;           /* оставил как у тебя */
+  align-items: center;     /* оставил как у тебя */
+
+  white-space: nowrap;     /* чтобы текст внутри одной кнопки не разрывался */
+  transition: color 0.5s, transform 0.5s;
+}
+
+/* hover: увеличиваем через transform, а не font-size — так высота не «прыгает» */
+header a:hover {
+  color: yellow;
+  transform: scale(1.15);  /* визуальное увеличение без изменения потока */
+}
+
+.tg {
+  width: 50px;              /* твой исходный размер */
+  height: auto;
+}
+
+/* Чтобы картинки не ломали верстку */
+header img {
+  max-height: 80px;         /* страховка: не больше 80px по высоте */
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+.null {
+  margin-bottom: 200px;
+}
+
+header img {
+  width: 100px;
+}
+
+.ip {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  margin: auto;
+  border-radius: 100px;
+  margin-top: 100px;
+}
+
+.ip h2 {
+  font-size: 60px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.ip h3 {
+  font-size: 35px;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.block-mg {
+  display: flex;
+  border: 5px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  width: 100%;
+  min-width: 300px;
+  border-radius: 50px;
+}
+
+.text-block-mg h2 {
+  font-size: clamp(32px, 5vw, 50px);
+}
+
+.text-block-mg h3 {
+  font-size: clamp(24px, 3.5vw, 30px);
+}
+
+.about h1 {
+  margin: auto;
+  margin-bottom: 50px;
+  font-size: clamp(32px, 10vw, 90px);
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: #000;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+/* --- Адаптивность: планшеты и мобильные --- */
+@media (max-width: 1300px) {
+  .wrapper {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .o{
+    margin-bottom: 500px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    flex-direction: column; /* элементы друг под другом */
+    text-align: center;
+  }
+
+  .boxhero img {
+    max-width: 100%; /* на планшетах картинка во всю ширину */
+  }
+
+  .o{
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .headerbtns {
+    padding-left: 20px;
+    flex-wrap: wrap;
+  }
+
+  .helperbox {
+    border-width: 8px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .block-mg {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .helpers {
+    margin-top: 50px;
+  }
+
+  .ip h2 {
+    font-size: 35px;
+  }
+  .ip h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 1.2rem;
+  }
+
+  .slider-btn.prev { left: 0.5rem; }
+  .slider-btn.next { right: 0.5rem; }
+
+  .helperbox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tysmtext {
+    font-size: 35px;
+  }
+
+  .ip h2{
+    font-size: 25px;
+  }
+  .ip h3{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 350px) {
+  header {
+
+  }
+}
