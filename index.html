@@ -60,10 +60,28 @@
         </div>
         <div id="ip" class="null"></div>
         <div class="ip">
-            <h3>IP сервера ETiSMC</h3>
-            <h2 class="ip-text">mc.enderteam.com</h2>
+            <div class="version-select-wrapper">
+                <label for="edition-select">Издание игры:</label>
+                <select id="edition-select" class="version-select">
+                    <option value="java" selected>Java Edition</option>
+                    <option value="bedrock">Bedrock Edition</option>
+                </select>
+            </div>
+
+            <div id="java-content" class="ip-content active">
+                <h3>IP сервера ETiSMC</h3>
+                <h2 class="ip-text copyable" title="Нажмите, чтобы скопировать">mc.enderteam.com</h2>
+            </div>
+
+            <div id="bedrock-content" class="ip-content">
+                <h3>IP для Bedrock</h3>
+                <h2 class="ip-text copyable" title="Нажмите, чтобы скопировать">pc.enderteam.com</h2>
+                <h3>Порт для Bedrock</h3>
+                <h2 class="ip-text copyable" title="Нажмите, чтобы скопировать">21241</h2>
+            </div>
         </div>
-        <div id="about" class="null"></div>
+
+        <div id="copy-notification" class="notification">Скопировано в буфер обмена!</div>        <div id="about" class="null"></div>
         <div class="about">
             <h1>Режимы</h3>
             <div class="block-mg">
@@ -125,5 +143,6 @@
         <h3>EnderTeam, ETiSMC, сайт EnderTeam и ETiSMC – интеллектуальная собственность yurafakel</h3>
     </footer>
     <script src="/js/autoslider.js"></script>
+    <script src="/js/ip.js"></script>
 </body>
 </html>
